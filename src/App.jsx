@@ -1,7 +1,7 @@
 
 
 import Foter from './components/Foter'
-import Header from './components/Header'
+import Header from './components/header'
 import WeatherFiveDays from './components/WeatherFiveDays'
 import WeatherInformation from './components/WeatherInformation'
 
