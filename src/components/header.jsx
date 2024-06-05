@@ -27,16 +27,16 @@ const Header = () => {
 
       <div className='text-white-R flex flex-col absolute right-0 left-0 mx-auto '>
         <div className='flex justify-center items-center h-[144px] '>
-          <p className='text-[144px]'>15</p>
-          <p className='text-[60px] text-grey-L mt-[70px]' > °C </p>
+          <p className='text-[144px] sm:text-[170px] '>15</p>
+          <p className='text-[60px] text-grey-L mt-[70px] sm:text-[90px] ' > °C </p>
         </div>
 
         <div>
-          <p className='text-center text-[35px] text-grey-L font-bold mt-8 '>Shower</p>
+          <p className='text-center text-[35px] text-grey-L font-bold mt-8 sm:mt-20 sm:text-[55px] '>Shower</p>
         </div>
 
         <div className='right-0 left-0 mx-auto w-[150px] mb-10 mt-6'>
-          <div className='flex justify-around h-[25px] '>
+          <div className='flex justify-around h-[25px] sm:mt-10 '>
             <p>Today</p>
             <p className='font-bold text-[24px] flex  justify-center items-center  '>.</p>
             <p>Fri 5 Jun </p>

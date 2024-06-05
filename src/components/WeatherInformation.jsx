@@ -7,7 +7,7 @@ const WeatherInformation = () => {
         <>
 
             <section className='mt-[1467px] max-w-1440px right-0 mx-auto absolute w-full  bg-dark-blue font-Raleway p-10 text-white-R
-          sm:mt-[300px] sm:w-[1024px] sm:h-[380px] '>
+          sm:mt-[300px] sm:w-[1010px] sm:h-[380px] '>
                 <p className='w-[250px] text-[28px] '>
                     Today’s Hightlights
                 </p>

@@ -9,7 +9,7 @@ const Nav = () => {
   return (
     <>
       <nav className='flex justify-between p-4 items-center sm:mt-8'>
-        <button 
+        <button
           className='bg-grey-R w-[160px] h-9 rounded-lg text-white-R cursor-pointer sm:ml-5'
           onClick={() => setMenuClick(true)}
         >
@@ -25,18 +25,30 @@ const Nav = () => {
       {menuClick && (
         <div className='fixed inset-0 bg-grey-blue bg-opacity-0 z-50'>
           <div className='absolute left-0 top-0 h-full bg-grey-blue p-10 shadow-lg w-full sm:w-[430px]'>
-            <span 
-              onClick={() => setMenuClick(false)} 
+            <span
+              onClick={() => setMenuClick(false)}
               className='text-white-R absolute right-8 top-8 cursor-pointer text-2xl'
             >
               &times;
             </span>
+
             <div className='flex justify-between h-[50px] w-[340px] mt-10 '>
-            <div className='flex opacity-25 border-2 p-2 rounded-xl '>
-              <img src={iconSearch} alt=""  className='w-9' />
-              <input type="text" value={'search location'} className='bg-grey-blue text-white-R ' />
+              <div className='flex opacity-25 border-2 p-2 rounded-xl '>
+                <img src={iconSearch} alt="" className='w-9' />
+                <input type="text" value={'search location'} className='bg-grey-blue text-white-R ' />
+              </div>
+              <button className='bg-skyBlue w-[73px] rounded-xl text-white-R '>Search</button>
             </div>
-            <button className='bg-skyBlue w-[73px] rounded-xl text-white-R '>Search</button>
+
+            <div className='py-12 w-full h-[350px] '>
+              <ul className='absolute list-none w-[320px] h-[320px] flex flex-col place-content-between text-white-R '>
+                <li className='h-[75px] flex items-center p-4 cursor-pointer hover:border-2
+rounded-xl ' >London</li>
+                <li className='h-[75px] flex items-center p-4 cursor-pointer hover:border-2
+rounded-xl ' >Barcelona</li>
+                <li className='h-[75px] flex items-center p-4 cursor-pointer hover:border-2
+rounded-xl ' >Long Beach</li>
+              </ul>
             </div>
           </div>
         </div>
