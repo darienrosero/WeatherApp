@@ -17,16 +17,16 @@ const WeatherInformation = () => {
 
             <section className='mt-[1700px] max-w-1440px right-0 mx-auto absolute w-full  bg-dark-blue font-Raleway p-10 text-white-R
           md:mt-[1700px] md:w-full md:absolute md:right-0 md:mx-auto md:p-10
-          xl:mt-[300px] xl:w-[900px] xl:h-[650px] xl:flex xl:flex-col '>
+          xl:mt-[297px] xl:w-[1000px] xl:h-[682px] xl:flex xl:flex-col '>
                 <p className='w-[250px] text-[28px] xl:h-8 '>
                     Today’s Hightlights
                 </p>
                 <div className='pt-7 h-auto
-            md:pt-7 md:h-auto md:flex md:flex-col md:items-center
-            xl:flex xl:w-[350px] xl:right-0 xl:left-0 '>
+                
+            xl:flex xl:flex-wrap xl:justify-around xl:items-center xl:w-[900px] '>
                     <div className='h-[204px] bg-grey-blue mb-6 rounded-2xl text-center p-4 text-[16px] 
               sm:w-[600px] sm:h-[230px]
-              xl:w-[350px] xl:h-[204px] '>
+              xl:w-[400px] xl:h-[204px] '>
                         <p>Wind status</p>
                         <p className='text-[64px] '>{currentWeather.wind.speed} mph</p>
                         <div className='flex justify-around right-0 left-0 mx-auto items-center w-[100px] '>
@@ -37,7 +37,7 @@ const WeatherInformation = () => {
 
                     <div className='h-[204px] bg-grey-blue mb-6 rounded-2xl text-center p-4 text-[16px] 
               sm:w-[600px] sm:h-[230px]
-              xl:w-[350px] xl:h-[204px]'>
+              xl:w-[400px] xl:h-[204px]'>
                         <p>Humidity</p>
                         <p className='text-[64px] '>{currentWeather.main.humidity} %</p>
                         <div className="flex flex-col items-center mt-4">
@@ -55,14 +55,14 @@ const WeatherInformation = () => {
 
                     <div className='h-[204px] bg-grey-blue mb-6 rounded-2xl text-center p-4 text-[16px] 
               sm:w-[600px] sm:h-[159px]
-              xl:w-[350px] xl:h-[204px] '>
+              xl:w-[400px] xl:h-[204px] '>
                         <p>Visibility</p>
                         <p className='text-[64px] '>{(currentWeather.visibility / 1609.344).toFixed(1)} miles</p>
                     </div>
 
                     <div className='h-[204px] bg-grey-blue mb-6 rounded-2xl text-center p-4 text-[16px] 
               sm:w-[600px] sm:h-[159px]
-               xl:w-[350px] xl:h-[204px]'>
+               xl:w-[400px] xl:h-[204px]'>
                         <p>Air Pressure</p>
                         <p className='text-[64px] '>{currentWeather.main.pressure} mb</p>
 
@@ -76,9 +76,3 @@ const WeatherInformation = () => {
 }
 
 export default WeatherInformation
-
-/* sm:mt-[300px] sm:w-[1010px] sm:h-[380px]
-
-
-sm:w-[800px] sm:flex sm:flex-wrap sm:justify-between sm:right-0 sm:left-0 sm:mx-auto 
-*/

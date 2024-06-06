@@ -19,7 +19,7 @@ const Header = () => {
       <header className='absolute w-full h-[979px] bg-grey-blue
     md:min-w-[768px] md:max-w-[1023px] md:h-[979px]
     lg:min-w-[300px] 
-    xl:w-[425px] '>
+    xl:w-[445px] '>
 
         <Nav />
         <Card weatherData={weatherData} toggleModal={toggleModal} />

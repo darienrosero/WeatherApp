@@ -22,7 +22,7 @@ const Targetdaly = () => {
         <section className='mt-[978px] right-0 mx-auto absolute w-full  bg-dark-blue font-Raleway flex justify-center p-10 text-white-R
         md:mt-[978px] md-w-[700px] md:h-[979px]
         lg:min-w-[1000px] lg:max-w-[1023px] lg:mt-0 lg:absolute
-        xl:w-[596px] xl:h-[979px] xl:mt-0 '>
+        xl:w-[594px] xl:h-[300px] xl:mt-0 '>
 
             <div className='w-[290px] h-[650px] flex flex-col justify-between items-center
                md:h-[650] md:flex md:flex-col md:justify-between md:items-center
