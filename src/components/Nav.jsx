@@ -14,9 +14,9 @@ const Nav = () => {
 
   return (
     <>
-      <nav className='flex justify-between p-8 items-center sm:mt-8 sm:py-4 '>
+      <nav className='flex justify-between p-8 items-center '>
         <button
-          className='bg-grey-R w-[160px] h-9 rounded-lg text-white-R cursor-pointer sm:ml-5'
+          className='bg-grey-R w-[160px] h-9 rounded-lg text-white-R cursor-pointer'
           onClick={toggleModal}
         >
           Search for places

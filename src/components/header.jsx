@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react'
+import React, { useContext, useState } from 'react'
 import { WeatherContext } from '../hooks/WeatherHook';
 
 import Nav from './Nav'
@@ -10,17 +10,19 @@ const Header = () => {
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
-};
+  };
 
   return (
 
     <>
 
-      <header className='min-w-[381px] mx-w-[430px] absolute w-full h-[850px] bg-grey-blue
-    sm:w-[430px] sm:h-[979px] '>
+      <header className='absolute w-full h-[979px] bg-grey-blue
+    md:min-w-[768px] md:max-w-[1023px] md:h-[979px]
+    lg:min-w-[300px] 
+    xl:w-[425px] '>
 
         <Nav />
-        <Card weatherData={weatherData} toggleModal={toggleModal}/>
+        <Card weatherData={weatherData} toggleModal={toggleModal} />
 
       </header>
 

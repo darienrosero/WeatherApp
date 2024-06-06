@@ -59,9 +59,9 @@ const Card = ({ weatherData}) => {
     
     <div className='w-full h-[326px] relative mt-1'>
         <figure className='h-full w-full absolute '>
-          <img src={clouds} alt="clouds bg" className='object-cover w-full h-full opacity-15 ' />
+          <img src={clouds} alt="clouds bg" className='object-cover w-full h-full opacity-15  ' />
         </figure>
-        <figure className='w-40 absolute mt-[55px] right-0 left-0 mx-auto ' >
+        <figure className='w-40 absolute mt-[55px] right-0 left-0 mx-auto xl:w-32 xl:right-0 xl:left-0 xl:mx-auto ' >
           <img src={`/public/${weatherData && weatherData.list && weatherData.list.length > 0 && weatherData.list[0].weather[0].icon}.png`} alt="wheather" />
         </figure>
       </div>

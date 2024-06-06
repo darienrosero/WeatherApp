@@ -19,13 +19,17 @@ const Targetdaly = () => {
 
     return (
 
-        <section className='mt-[810px] max-w-1440px right-0 mx-auto absolute w-full  bg-dark-blue font-Raleway flex justify-center p-10 text-white-R
-        sm:flex sm:flex-col sm:justify-start sm:items-center sm:w-[1011px] sm:h-[979px] sm:mt-0 '>
+        <section className='mt-[978px] right-0 mx-auto absolute w-full  bg-dark-blue font-Raleway flex justify-center p-10 text-white-R
+        md:mt-[978px] md-w-[700px] md:h-[979px]
+        lg:min-w-[1000px] lg:max-w-[1023px] lg:mt-0 lg:absolute
+        xl:w-[596px] xl:h-[979px] xl:mt-0 '>
 
-            <div className='w-[290px] min-w-[290px] h-[650px] flex flex-col justify-between items-center
-            sm:w-[800px] sm:h-[200px]  '>
-                <div className='w-[290px] h-8 flex place-content-end mb- 
-    sm:w-[800px] sm:h-8 sm:mb-5 '>
+            <div className='w-[290px] h-[650px] flex flex-col justify-between items-center
+               md:h-[650] md:flex md:flex-col md:justify-between md:items-center
+               xl:w-[800px] xl:h-[200px] xl:flex xl:flex-col xl:place-content-center'>
+                <div className='w-[290px] h-8 flex place-content-end mb-3 
+                     md:h-8 md:flex md:place-content-end md:mb-3 
+                     xl:w-[800px] xl:flex xl:items-end '>
                     <button
                         className={`bg-grey-F font-bold rounded-[100%] ml-3 w-8 h-8 flex justify-center items-center cursor-pointer ${unit === 'C' ? 'bg-white-R text-dark-blue' : 'bg-grey-F'}`}
                         onClick={() => setUnit('C')}
@@ -38,17 +42,18 @@ const Targetdaly = () => {
                 </div>
 
                 <div className='w-[290px] h-[620px] flex flex-wrap justify-between items-center
-            sm:w-[800px] sm:h-[200px] sm:flex  '>
+                  md:w-[290px] md:h-[620px] md:flex md:flex-wrap md:justify-between md:items-center
+                  xl:flex xl:justify-around xl:items-center xl:w-[800px] '>
                     {dailyForecasts.slice(0, 5).map((forecast, index) => (
-                        <div key={index} className='w-[130px] h-[177px] bg-grey-blue rounded-2xl text-center p-4'>
+                    <div key={index} className='w-[130px] h-[177px] bg-grey-blue rounded-2xl text-center p-4'>
 
-                            <p>{new Date(forecast.dt * 1000).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })}</p>
-                            <img src={`https://openweathermap.org/img/wn/${forecast.weather[0].icon}.png`} alt="heavy rain" className='w-[70px] right-0 left-0 mx-auto ' />
-                            <div className='flex w-30 mt-3 justify-around'>
-                                <div><span>{convertTemperature(forecast.main.temp_max)}°{unit}</span> {convertTemperature(forecast.main.temp_min)}°{unit}</div>
-                            </div>
+                        <p>{new Date(forecast.dt * 1000).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })}</p>
+                        <img src={`https://openweathermap.org/img/wn/${forecast.weather[0].icon}.png`} alt="heavy rain" className='w-[70px] right-0 left-0 mx-auto ' />
+                        <div className='flex w-30 mt-3 justify-around'>
+                            <div><span>{convertTemperature(forecast.main.temp_max)}°{unit}</span> {convertTemperature(forecast.main.temp_min)}°{unit}</div>
                         </div>
-                    ))}
+                    </div>
+                ))} 
                 </div>
 
             </div>
@@ -58,3 +63,16 @@ const Targetdaly = () => {
 }
 
 export default Targetdaly
+
+/* 
+sm:flex sm:flex-col  sm:w-[1011px] sm:h-[979px] sm:mt-0
+
+
+sm:w-[800px] sm:h-[200px]
+
+
+sm:w-[800px] sm:h-8 sm:mb-5 
+
+
+sm:w-[800px] sm:h-[200px] sm:flex
+*/

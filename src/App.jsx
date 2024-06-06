@@ -18,9 +18,9 @@ function App() {
 
             <Targetdaly />
 
-            {/* <WeatherInformation /> */}
+            <WeatherInformation />
 
-            <Foter />
+           {/*  <Foter /> */}
           </WeatherProvider>
 
         </div>
