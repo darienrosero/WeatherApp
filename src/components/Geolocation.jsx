@@ -8,6 +8,7 @@ const Geolocation = () => {
   const { setLocation } = useContext(WeatherContext);
   const [geolocation, setGeolocation] = useState({});
 
+
   function success(position) {
     setGeolocation({
       latitude: position.coords.latitude,

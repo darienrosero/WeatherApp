@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import { WeatherContext } from '../hooks/WeatherHook';
 
 import iconSearch from '../assets/public/icons8-search-50.png'
@@ -18,7 +18,9 @@ const Modal = ({ isModalOpen, toggleModal, location, setLocation}) => {
 
     const handleLocationInputChange = (e) => {
         setLocation(e.target.value);
+        console.log(e)
     };
+
 
     return (
         <>

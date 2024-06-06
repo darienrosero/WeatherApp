@@ -1,42 +1,61 @@
-import React, { createContext, useState, useEffect, useCallback } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 
 const WeatherContext = createContext();
 
 const WeatherProvider = ({ children }) => {
     const [weatherData, setWeatherData] = useState(null);
-    const [location, setLocation] = useState(null); 
+    const [location, setLocation] = useState(null);
     const [city, setCity] = useState('');
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     const API_KEY = '7b96eb3c96a6d6018572464977e2e33b';
 
-    const fetchWeatherData = useCallback(async (lat, lon) => {
+    const fetchWeather = async (lat, lon) => {
         setLoading(true);
         setError(null);
         try {
-            const [forecastResponse, weatherResponse] = await Promise.all([
-                fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}`),
-                fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`)
-            ]);
-
-            if (!forecastResponse.ok || !weatherResponse.ok) {
+            const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}`);
+            if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
-
-            const forecastData = await forecastResponse.json();
-            const weatherData = await weatherResponse.json();
-
-            setWeatherData(forecastData);
-            setCity(weatherData.name);
+            const data = await response.json();
+            setWeatherData(data);
         } catch (err) {
             setError(err.message);
         } finally {
             setLoading(false);
         }
-    }, [API_KEY]);
+    };
 
-    const getLocation = useCallback(() => {
+    const fetchWeatherByCity = async (cityName) => {
+        setLoading(true);
+        setError(null);
+        try {
+            const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${API_KEY}`);
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const data = await response.json();
+            setWeatherData(data);
+        } catch (err) {
+            setError(err.message);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const fetchCityName = async (lat, lon) => {
+        try {
+            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`);
+            const data = await response.json();
+            setCity(data.name);
+        } catch (error) {
+            console.error('Error fetching city name:', error);
+        }
+    };
+
+    const getLocation = () => {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
                 (position) => {
@@ -47,26 +66,23 @@ const WeatherProvider = ({ children }) => {
                 },
                 (error) => {
                     console.error('Error getting location:', error);
-                    setError('Error getting location. Please enable location services.');
-                    setLoading(false);
                 }
             );
         } else {
             console.error('Geolocation is not supported by this browser.');
-            setError('Geolocation is not supported by this browser.');
-            setLoading(false);
         }
-    }, []);
+    };
 
     useEffect(() => {
-        getLocation();
-    }, [getLocation]);
+        getLocation(); 
+    }, []); 
 
     useEffect(() => {
-        if (location) {
-            fetchWeatherData(location.lat, location.lon);
+        if (location) { 
+            fetchWeather(location.lat, location.lon);
+            fetchCityName(location.lat, location.lon);
         }
-    }, [location, fetchWeatherData]);
+    }, [location]); 
 
     return (
         <WeatherContext.Provider
@@ -75,6 +91,7 @@ const WeatherProvider = ({ children }) => {
                 city,
                 getLocation,
                 setLocation,
+                fetchWeatherByCity, // Agregamos fetchWeatherByCity al contexto
                 loading,
                 error,
             }}
