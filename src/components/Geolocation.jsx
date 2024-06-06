@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { WeatherContext } from "../hooks/WeatherHook";
 
-import selectUbication from '../assets/public/icons8-location-off-64.png';
+import selectUbication from '../../public/icons8-location-off-64.png';
 
 const Geolocation = () => {
 

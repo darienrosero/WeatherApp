@@ -1,5 +1,5 @@
 import React from 'react'
-import iconNavegation from '../assets/public/icons8-navigation-30.png'
+import iconNavegation from '../../public/icons8-navigation-30.png'
 
 const WeatherInformation = () => {
     return (

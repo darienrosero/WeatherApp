@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { WeatherContext } from '../hooks/WeatherHook';
 
-import iconSearch from '../assets/public/icons8-search-50.png'
+import iconSearch from '../../public/icons8-search-50.png'
 
 const Modal = ({ isModalOpen, toggleModal, location, setLocation}) => {
     const { fetchWeatherByCity } = useContext(WeatherContext); 

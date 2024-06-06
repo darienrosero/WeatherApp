@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
-import clouds from '../assets/public/Cloud-background.png'
-import iconLocation from '../assets/public/ubication.png'
+import clouds from '../../public/Cloud-background.png'
+import iconLocation from '../../public/ubication.png'
 
 const Card = ({ weatherData}) => {
   const [currentTemperature, setCurrentTemperature] = useState('');
@@ -64,7 +64,7 @@ const Card = ({ weatherData}) => {
           <img src={clouds} alt="clouds bg" className='object-cover w-full h-full opacity-15 ' />
         </figure>
         <figure className='w-40 absolute mt-[55px] right-0 left-0 mx-auto ' >
-          <img src={`src/assets/public/${weatherData && weatherData.list && weatherData.list.length > 0 && weatherData.list[0].weather[0].icon}.png`} alt="wheather" />
+          <img src={`/public/${weatherData && weatherData.list && weatherData.list.length > 0 && weatherData.list[0].weather[0].icon}.png`} alt="wheather" />
         </figure>
       </div>
 
