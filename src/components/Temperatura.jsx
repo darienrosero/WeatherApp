@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 
 const Temperatura = () => {
 
-    const [button1, setButton1] = useState(false)
-    const [button2, setButton2] = useState(false)
+    const [button1, setButton1] = useState(true)
+    const [button2, setButton2] = useState(true)
 
     const handleClick2 = () => {
         setButton2(!button2)

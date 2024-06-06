@@ -1,58 +1,59 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import Geolocation from './Geolocation';
 
-import selectUbication from '../assets/public/icons8-location-off-64.png';
-import iconSearch from '../assets/public/icons8-search-50.png'
+import { WeatherContext } from '../hooks/WeatherHook';
+import { WeatherProvider } from '../hooks/WeatherHook';
+import Modal from './Modal';
 
 const Nav = () => {
-  const [menuClick, setMenuClick] = useState(false);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [location, setLocation] = useState('');
+  const { fetchWeather, weatherData } = useContext(WeatherContext);
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
+  const handleSearch = async () => {
+    if (location.trim()) {
+      await fetchWeather(location);
+      setIsModalOpen(false);
+    }
+  };
+
+  const handleQuickSearch = async (city) => {
+    await fetchWeather(city);
+    setIsModalOpen(false);
+  };
 
   return (
     <>
       <nav className='flex justify-between p-4 items-center sm:mt-8'>
         <button
           className='bg-grey-R w-[160px] h-9 rounded-lg text-white-R cursor-pointer sm:ml-5'
-          onClick={() => setMenuClick(true)}
+          onClick={toggleModal}
         >
           Search for places
         </button>
-        <div className='w-8 flex items-center sm:mr-5'>
-          <button className='bg-grey-R rounded-[100%] cursor-pointer'>
-            <img src={selectUbication} alt="ubication" />
-          </button>
-        </div>
+
+        <WeatherProvider>
+          <Geolocation />
+        </WeatherProvider>
+
       </nav>
 
-      {menuClick && (
-        <div className='fixed inset-0 bg-grey-blue bg-opacity-0 z-50'>
-          <div className='absolute left-0 top-0 h-full bg-grey-blue p-10 shadow-lg w-full sm:w-[430px]'>
-            <span
-              onClick={() => setMenuClick(false)}
-              className='text-white-R absolute right-8 top-8 cursor-pointer text-2xl'
-            >
-              &times;
-            </span>
+      <Modal
 
-            <div className='flex justify-between h-[50px] w-[340px] mt-10 '>
-              <div className='flex opacity-25 border-2 p-2 rounded-xl '>
-                <img src={iconSearch} alt="" className='w-9' />
-                <input type="text" value={'search location'} className='bg-grey-blue text-white-R ' />
-              </div>
-              <button className='bg-skyBlue w-[73px] rounded-xl text-white-R '>Search</button>
-            </div>
+        isModalOpen={isModalOpen}
+        toggleModal={toggleModal}
+        location={location}
+        setLocation={setLocation}
+        handleSearch={handleSearch}
+        handleQuickSearch={handleQuickSearch}
 
-            <div className='py-12 w-full h-[350px] '>
-              <ul className='absolute list-none w-[320px] h-[320px] flex flex-col place-content-between text-white-R '>
-                <li className='h-[75px] flex items-center p-4 cursor-pointer hover:border-2
-rounded-xl ' >London</li>
-                <li className='h-[75px] flex items-center p-4 cursor-pointer hover:border-2
-rounded-xl ' >Barcelona</li>
-                <li className='h-[75px] flex items-center p-4 cursor-pointer hover:border-2
-rounded-xl ' >Long Beach</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      )}
+      />
+
     </>
   );
 };
