@@ -15,7 +15,7 @@ const WeatherInformation = () => {
 
         <>
 
-            <section className='mt-[1520px] max-w-1440px right-0 mx-auto absolute w-full  bg-dark-blue font-Raleway p-10 text-white-R
+            <section className='mt-[1700px] max-w-1440px right-0 mx-auto absolute w-full  bg-dark-blue font-Raleway p-10 text-white-R
           md:mt-[1700px] md:w-full md:absolute md:right-0 md:mx-auto md:p-10
           xl:mt-[300px] xl:w-[900px] xl:h-[650px] xl:flex xl:flex-col '>
                 <p className='w-[250px] text-[28px] xl:h-8 '>
@@ -47,9 +47,9 @@ const WeatherInformation = () => {
                                 <span>100</span>
                             </div>
                             <div className="w-[358] rounded-full bg-grey-L h-2 ">
-                                <div className="bg-light-yeloow h-2 rounded-full text-grey-blue b " style={{ width: `${currentWeather.main.humidity}%` }}>________________________________________</div>
+                                <div className="bg-light-yeloow h-2 rounded-full text-grey-blue b " style={{ width: `${currentWeather.main.humidity}%` }}>_________________________________</div>
                             </div>
-                            <span className="self-end mt-1 flex md:w-[400px] md:hidden ">%</span>
+                            <span className="self-end mt-1 flex md:w-[400px]"></span>
                         </div>
                     </div>
 
