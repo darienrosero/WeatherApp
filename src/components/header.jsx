@@ -16,7 +16,7 @@ const Header = () => {
 
     <>
 
-      <header className='absolute w-full h-[810px] bg-grey-blue
+      <header className='min-w-[381px] mx-w-[430px] absolute w-full h-[850px] bg-grey-blue
     sm:w-[430px] sm:h-[979px] '>
 
         <Nav />

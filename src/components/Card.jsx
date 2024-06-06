@@ -8,8 +8,6 @@ const Card = ({ weatherData}) => {
   const [currentWeatherDescription, setCurrentWeatherDescription] = useState('');
   const [currentDate, setCurrentDate] = useState('');
 
-  console.log(currentTemperature)
-
   useEffect(() => {
     const updateWeather = () => {
         if (!weatherData || !weatherData.list || weatherData.list.length === 0) {

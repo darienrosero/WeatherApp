@@ -40,7 +40,7 @@ const Modal = ({ isModalOpen, toggleModal, location, setLocation}) => {
                             <input type="text" placeholder='Search location' className='bg-grey-blue text-white-R border-none focus:outline-none ' value={location}
                         onChange={handleLocationInputChange} />
                         </div>
-                        <button className='bg-skyBlue w-[73px] rounded-xl text-white-R ' onClick={handleSearchButtonClick}>Search</button>
+                        <button className='bg-skyBlue w-[73px] relative rounded-xl text-white-R ' onClick={handleSearchButtonClick}>Search</button>
                     </div>
 
                     <div className='py-12 w-full h-[350px] '>

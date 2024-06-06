@@ -2,7 +2,7 @@
 
 import Foter from './components/Foter'
 import Header from './components/header'
-import WeatherFiveDays from './components/WeatherFiveDays'
+import Targetdaly from './components/Targetdaly'
 import WeatherInformation from './components/WeatherInformation'
 import { WeatherProvider } from './hooks/WeatherHook'
 
@@ -16,9 +16,9 @@ function App() {
           <WeatherProvider>
             <Header />
 
-            <WeatherFiveDays />
+            <Targetdaly />
 
-            <WeatherInformation />
+            {/* <WeatherInformation /> */}
 
             <Foter />
           </WeatherProvider>
